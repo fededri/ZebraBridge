@@ -10,4 +10,6 @@ interface ConnectionProtocol {
     fun disconnect(promise: Promise)
 
     fun isConnectedToPrinter(promise: Promise)
+
+    fun isConnected(): Boolean
 }
