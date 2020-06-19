@@ -1,25 +1,43 @@
 package com.ezcorp.ezroam.zebraBridge
 
-import android.widget.Toast
-import com.facebook.react.bridge.Callback
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.ReactMethod
+import com.ezcorp.ezroam.zebraBridge.interfaces.ConnectionProtocol
+import com.ezcorp.ezroam.zebraBridge.interfaces.ZebraProtocol
+import com.facebook.react.bridge.*
 
-class ZebraBridgeModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
+                        private val connectionProtocol: ConnectionProtocol
+) : ReactContextBaseJavaModule(reactContext), ZebraProtocol, LifecycleEventListener {
+
     override fun getName(): String {
         return "ZebraBridge"
     }
 
+
     @ReactMethod
-    fun sampleMethod(stringArgument: String, numberArgument: Int, callback: Callback) {
-        // TODO: Implement some actually useful functionality
-        callback.invoke("Received numberArgument: $numberArgument stringArgument: $stringArgument")
+    override fun connect(ip: String, port: Int, promise: Promise) {
+        connectionProtocol.connect(ip, port, promise)
     }
 
     @ReactMethod
-    fun showToast(message: String?) {
-        Toast.makeText(reactContext, message, Toast.LENGTH_SHORT).show()
+    override fun disconnect(promise: Promise) {
+        connectionProtocol.disconnect(promise)
+    }
+
+    @ReactMethod
+    override fun isConnectedToPrinter(promise: Promise) {
+        connectionProtocol.isConnectedToPrinter(promise)
+    }
+
+    override fun onHostDestroy() {
+
+    }
+
+    override fun onHostPause() {
+
+    }
+
+    override fun onHostResume() {
+
     }
 
 }
