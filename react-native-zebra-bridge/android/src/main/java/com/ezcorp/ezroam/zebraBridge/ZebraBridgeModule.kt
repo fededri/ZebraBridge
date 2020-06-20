@@ -3,8 +3,10 @@ package com.ezcorp.ezroam.zebraBridge
 import android.content.Context
 import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
 import com.ezcorp.ezroam.zebraBridge.interfaces.ConnectionProtocol
+import com.ezcorp.ezroam.zebraBridge.interfaces.DiscoveryProtocol
 import com.ezcorp.ezroam.zebraBridge.interfaces.FileSender
 import com.ezcorp.ezroam.zebraBridge.interfaces.ZebraProtocol
+import com.ezcorp.ezroam.zebraBridge.models.ObservableTopics
 import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.*
 import com.facebook.react.modules.core.DeviceEventManagerModule
@@ -20,11 +22,13 @@ internal const val STATUS_UPDATE_INTERVAL = 3000L // in milliseconds
 class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
                         private val connectionProtocol: ConnectionProtocol,
                         private val fileSender: FileSender,
-                        private val lifecycleEventListener: LifecycleEventListener
+                        private val lifecycleEventListener: LifecycleEventListener,
+                        private val discoveryProtocol: DiscoveryProtocol
 ) : ReactContextBaseJavaModule(reactContext),
         ZebraProtocol,
         ConnectionProtocol by connectionProtocol,
-        LifecycleEventListener by lifecycleEventListener {
+        LifecycleEventListener by lifecycleEventListener,
+        DiscoveryProtocol by discoveryProtocol {
 
     private lateinit var eventEmitter: DeviceEventManagerModule.RCTDeviceEventEmitter
     private var printerStatusListenerJob: Job? = null
@@ -72,7 +76,7 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
     @ReactMethod
     override fun startListeningPrinterStatus(promise: Promise) {
         if (isConnected()) {
-            promise.resolve(ResolveTypes.SUCCESS)
+            promise.resolve(ResolveTypes.SUCCESS.value)
             runBlocking(Dispatchers.IO) {
                 printerStatusListenerJob = launch {
                     val connection = getConnection()
@@ -96,7 +100,7 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
         val printer = ZebraPrinterFactory.getInstance(connection)
         val map = printer.currentStatus.asMap()
         //Here we send the event to react native code
-        eventEmitter.emit("ZebraPrinterStatus", map)
+        eventEmitter.emit(ObservableTopics.PRINTER_STATUS.value, map)
     }
 
     @ReactMethod
@@ -105,6 +109,14 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
     }
     //endregion
 
+    //region Discovery
+    @ReactMethod
+    fun discoverPrintersOnNetwork(promise: Promise) {
+        discoveryProtocol.discoverPrintersOnNetwork(eventEmitter, promise)
+    }
+    //endregion
+
+    //region Testing functions
     //Test method, makes al the corresponding actions to connect to the printer with the specified IP, and prints some dummy data
     @ReactMethod
     fun testPrinter(ip: String, promise: Promise) {
@@ -136,7 +148,7 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
                     outputStream.flush()
                     outputStream.close()
                     printer.sendFileContents(file.absolutePath)
-                    promise.resolve(ResolveTypes.SUCCESS)
+                    promise.resolve(ResolveTypes.SUCCESS.value)
 
                 } catch (e: Exception) {
                     promise.reject(e)
@@ -147,4 +159,5 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
         }
 
     }
+    //endregion
 }

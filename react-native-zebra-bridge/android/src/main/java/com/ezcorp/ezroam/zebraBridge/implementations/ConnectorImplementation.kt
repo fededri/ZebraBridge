@@ -17,7 +17,7 @@ class ConnectorImplementation : ConnectionProtocol {
                 val printerConnection = TcpConnection(ip, port)
                 printerConnection.open()
                 ApplicationSingleton.printerConnection = printerConnection
-                promise.resolve(ResolveTypes.SUCCESS)
+                promise.resolve(ResolveTypes.SUCCESS.value)
             } catch (e: Exception) {
                 promise.reject(e)
             }
