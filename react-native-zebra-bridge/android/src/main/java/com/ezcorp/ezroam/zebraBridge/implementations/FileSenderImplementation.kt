@@ -8,7 +8,7 @@ import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.zebra.sdk.printer.ZebraPrinterFactory
 
-class FileSenderImplementation(val context: ReactApplicationContext) : FileSender {
+class FileSenderImplementation : FileSender {
 
     override fun sendFile(absolutePath: String, promise: Promise) {
         dispatchNewTask(Runnable {

@@ -14,6 +14,7 @@ import com.facebook.react.bridge.JavaScriptModule;
 public class ZebraBridgePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        ApplicationSingleton.INSTANCE.initializeKoin(reactContext);
         ZebraBridgeModule module = ApplicationSingleton.INSTANCE.getZebraModule(reactContext);
         return Arrays.<NativeModule>asList(module);
     }

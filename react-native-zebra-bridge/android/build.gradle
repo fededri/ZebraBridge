@@ -25,6 +25,7 @@ apply plugin: 'maven'
 
 buildscript {
     ext.kotlin_version = '1.3.72'
+    ext.koin_version = '2.1.6'
     // The Android Gradle plugin is only required when opening the android folder stand-alone.
     // This avoids unnecessary downloads and potential conflicts when the library is included as a
     // module dependency in an application project.
@@ -101,6 +102,11 @@ dependencies {
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
+
+    //Koin
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-scope:$koin_version"
 }
 
 def configureReactNativePom(def pom) {

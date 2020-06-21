@@ -17,7 +17,7 @@ import com.zebra.sdk.printer.discovery.DiscoveryHandler
 import com.zebra.sdk.printer.discovery.NetworkDiscoverer
 import java.lang.Exception
 
-class DiscoveryImplementation(private val reactContext: ReactContext
+class DiscoveryImplementation(private val reactContext: Context
 ) : DiscoveryProtocol, DiscoveryHandler {
 
     private var eventEmitter: DeviceEventManagerModule.RCTDeviceEventEmitter? = null
