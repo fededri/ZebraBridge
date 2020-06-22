@@ -7,14 +7,10 @@ Considerations:\
 -Add this to the app/build.gradle file :
 
  packagingOptions {
-        pickFirst "lib/armeabi-v7a/libc++_shared.so"
-        pickFirst "lib/arm64-v8a/libc++_shared.so"
-        pickFirst "lib/x86/libc++_shared.so"
-        pickFirst "lib/x86_64/libc++_shared.so"
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE.txt'\
+        exclude 'META-INF/NOTICE.txt'\
+        exclude 'META-INF/NOTICE'\
+        exclude 'META-INF/LICENSE'\
+        exclude 'META-INF/DEPENDENCIES'\
     }
 
