@@ -3,5 +3,18 @@ Android zebra bridge for React native.
 
 Considerations:\
 -RN app must support multi dex since this native module uses jar files which adds a big number of methods.\
--RN app must declare in the Manifest the permission CHANGE_WIFI_MULTICAST_STATE in order to be able to discover printers on the network
+-RN app must declare in the Manifest the permission CHANGE_WIFI_MULTICAST_STATE in order to be able to discover printers on the network\
+-Add this to the app/build.gradle file :
+
+ packagingOptions {
+        pickFirst "lib/armeabi-v7a/libc++_shared.so"
+        pickFirst "lib/arm64-v8a/libc++_shared.so"
+        pickFirst "lib/x86/libc++_shared.so"
+        pickFirst "lib/x86_64/libc++_shared.so"
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+    }
 
