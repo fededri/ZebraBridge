@@ -2,10 +2,7 @@ package com.ezcorp.ezroam.zebraBridge
 
 import android.content.Context
 import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
-import com.ezcorp.ezroam.zebraBridge.interfaces.ConnectionProtocol
-import com.ezcorp.ezroam.zebraBridge.interfaces.DiscoveryProtocol
-import com.ezcorp.ezroam.zebraBridge.interfaces.FileSender
-import com.ezcorp.ezroam.zebraBridge.interfaces.ZebraProtocol
+import com.ezcorp.ezroam.zebraBridge.interfaces.*
 import com.ezcorp.ezroam.zebraBridge.models.ObservableTopics
 import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.*
@@ -23,12 +20,14 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
                         private val connectionProtocol: ConnectionProtocol,
                         private val fileSender: FileSender,
                         private val lifecycleEventListener: LifecycleEventListener,
-                        private val discoveryProtocol: DiscoveryProtocol
+                        private val discoveryProtocol: DiscoveryProtocol,
+                        private val imagePrinter: ImagePrinterProtocol
 ) : ReactContextBaseJavaModule(reactContext),
         ZebraProtocol,
         ConnectionProtocol by connectionProtocol,
         LifecycleEventListener by lifecycleEventListener,
-        DiscoveryProtocol by discoveryProtocol {
+        DiscoveryProtocol by discoveryProtocol,
+        ImagePrinterProtocol by imagePrinter {
 
     private lateinit var eventEmitter: DeviceEventManagerModule.RCTDeviceEventEmitter
     private var printerStatusListenerJob: Job? = null
@@ -68,6 +67,11 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
         } else {
             promise.reject(Throwable("First you must connect to the printer"))
         }
+    }
+
+    @ReactMethod
+    override fun printImage(path: String, promise: Promise) {
+        imagePrinter.printImage(path, promise)
     }
     //endregion
 
