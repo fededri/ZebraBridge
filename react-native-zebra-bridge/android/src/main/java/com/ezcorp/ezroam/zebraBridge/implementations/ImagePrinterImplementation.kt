@@ -8,6 +8,7 @@ import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.Promise
 import com.zebra.sdk.graphics.internal.ZebraImageAndroid
 import com.zebra.sdk.printer.ZebraPrinterFactory
+import kotlinx.coroutines.delay
 
 private const val KEEP_WIDTH = 0
 private const val KEEP_HEIGHT = 0
