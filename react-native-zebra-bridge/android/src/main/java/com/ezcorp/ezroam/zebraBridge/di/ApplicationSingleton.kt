@@ -22,10 +22,3 @@ object ApplicationSingleton {
         }
     }
 }
-
-
-interface CustomKoinComponent : KoinComponent {
-    override fun getKoin(): Koin {
-        return ApplicationSingleton.koinApplication!!.koin
-    }
-}
