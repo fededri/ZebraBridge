@@ -29,6 +29,7 @@ import {
 
 import ZebraBridge from 'react-native-zebra-bridge';
 import ImagePicker from 'react-native-image-picker';
+import DocumentPicker from 'react-native-document-picker';
 
 const pickerOptions = {
   title: 'Select Image',
@@ -44,7 +45,8 @@ const pickerOptions = {
 //test() //this connects and prints a "TEST" text
 
 //requestCameraPermission() //check camera permissions, connects  and when user selects an image, it sends the absolute path to print
-observePrinterStatus()
+pickFile()
+
 //mainTest()
 
 const App: () => React$Node = () => {
@@ -69,25 +71,6 @@ const App: () => React$Node = () => {
                 screen and then come back to see your edits.
               </Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -171,9 +154,10 @@ async function disconnect(){
   }
 }
 
-async function sendFile(){
+async function sendFile(path){
   try{
-    let response = await ZebraBridge.sendFile("C:/archives")
+    console.log("Sending file")
+    let response = await ZebraBridge.sendFile(path, false)
     console.log("file sent " + response)
   }catch(e){
     console.log(e)
@@ -210,6 +194,29 @@ function observePrinterStatus(){
     });
   }catch(e){
     console.log(e)
+  }
+}
+
+async function pickFile(){
+  await connect()
+  try {
+    console.log("Pickign file")
+    const res = await DocumentPicker.pick({
+      type: [DocumentPicker.types.plainText],
+    });
+    console.log(
+      res.uri,
+      res.type, // mime type
+      res.name,
+      res.size
+    );
+    sendFile(res.uri)
+  } catch (err) {
+    if (DocumentPicker.isCancel(err)) {
+      // User cancelled the picker, exit any dialogs or menus and move on
+    } else {
+      throw err;
+    }
   }
 }
 

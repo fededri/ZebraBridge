@@ -3,5 +3,9 @@ package com.ezcorp.ezroam.zebraBridge.interfaces
 import com.facebook.react.bridge.Promise
 
 interface FileSender {
-    fun sendFile(absolutePath: String, promise: Promise)
+
+    /**
+     * if @param isAbsolutePath is false, the string will be taken as an URI
+     */
+    fun sendFile(path: String, isAbsolutePath: Boolean, promise: Promise)
 }

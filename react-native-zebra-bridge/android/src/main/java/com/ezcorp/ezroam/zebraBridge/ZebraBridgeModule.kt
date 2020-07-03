@@ -1,6 +1,7 @@
 package com.ezcorp.ezroam.zebraBridge
 
 import android.content.Context
+import android.net.Uri
 import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
 import com.ezcorp.ezroam.zebraBridge.interfaces.*
 import com.ezcorp.ezroam.zebraBridge.models.ObservableTopics
@@ -45,6 +46,7 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
     //region Connection protocols
     @ReactMethod
     override fun connect(ip: String, port: Int, promise: Promise) {
+        val uri: Uri = Uri.parse("")
         connectionProtocol.connect(ip, port, promise)
     }
 
@@ -61,11 +63,11 @@ class ZebraBridgeModule(private val reactContext: ReactApplicationContext,
 
     //region File Sender Protocols
     @ReactMethod
-    override fun sendFile(absolutePath: String, promise: Promise) {
+    override fun sendFile(path: String, isAbsolutePath: Boolean, promise: Promise) {
         if (isConnected()) {
-            fileSender.sendFile(absolutePath, promise)
+            fileSender.sendFile(path, isAbsolutePath, promise)
         } else {
-            promise.reject(Throwable("First you must connect to the printer"))
+            promise.reject(Throwable("First you must be connected to the printer"))
         }
     }
 

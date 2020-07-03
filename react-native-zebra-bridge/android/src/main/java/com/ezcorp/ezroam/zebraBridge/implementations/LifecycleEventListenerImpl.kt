@@ -14,6 +14,7 @@ class LifecycleEventListenerImpl : LifecycleEventListener {
             }
         } finally {
             ApplicationSingleton.printerConnection = null
+            ApplicationSingleton.contentResolver = null
             ApplicationSingleton.jobs.forEach {
                 it.cancel()
             }
