@@ -24,7 +24,7 @@ class ImagePrinterImplementation : ImagePrinterProtocol {
                 val zebraImage = ZebraImageAndroid(bitmap)
                 val printer = ZebraPrinterFactory.getInstance(ApplicationSingleton.printerConnection)
                 printer.printImage(zebraImage, STARTING_X_POS, STARTING_Y_POS, KEEP_WIDTH, KEEP_HEIGHT, false)
-                promise.resolve(ResolveTypes.PRINT_SENT)
+                promise.resolve(ResolveTypes.PRINT_SENT.value)
             } catch (e: Exception) {
                 e.printStackTrace()
                 promise.reject(e)
