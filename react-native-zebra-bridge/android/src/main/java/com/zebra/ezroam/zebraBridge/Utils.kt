@@ -23,10 +23,8 @@ fun PrinterStatus.asMap(): WritableMap {
 
 fun DiscoveredPrinter.asMap(): WritableMap {
     val dnsName = discoveryDataMap["DNS_NAME"]
-    val portNumber = discoveryDataMap["PORT_NUMBER"]
     return Arguments.createMap().apply {
         putString("ADDRESS", address)
         putString("DNS_NAME", dnsName)
-        putString("PORT_NUMBER", portNumber)
     }
 }
