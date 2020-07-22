@@ -1,11 +1,11 @@
-package com.ezcorp.ezroam.zebraBridge
+package com.zebra.ezroam.zebraBridge
 
 import android.content.Context
 import android.net.Uri
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
-import com.ezcorp.ezroam.zebraBridge.interfaces.*
-import com.ezcorp.ezroam.zebraBridge.models.ObservableTopics
-import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.interfaces.*
+import com.zebra.ezroam.zebraBridge.models.ObservableTopics
+import com.zebra.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.*
 import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.zebra.sdk.comm.Connection

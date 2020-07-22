@@ -1,11 +1,11 @@
-package com.ezcorp.ezroam.zebraBridge.implementations
+package com.zebra.ezroam.zebraBridge.implementations
 
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
-import com.ezcorp.ezroam.zebraBridge.dispatchNewTask
-import com.ezcorp.ezroam.zebraBridge.getConnection
-import com.ezcorp.ezroam.zebraBridge.interfaces.ConnectionProtocol
-import com.ezcorp.ezroam.zebraBridge.models.ErrorTypes
-import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.dispatchNewTask
+import com.zebra.ezroam.zebraBridge.getConnection
+import com.zebra.ezroam.zebraBridge.interfaces.ConnectionProtocol
+import com.zebra.ezroam.zebraBridge.models.ErrorTypes
+import com.zebra.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.Promise
 import com.zebra.sdk.comm.TcpConnection
 

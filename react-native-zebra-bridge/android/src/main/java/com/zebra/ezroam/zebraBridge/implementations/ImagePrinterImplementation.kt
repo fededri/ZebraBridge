@@ -1,10 +1,10 @@
-package com.ezcorp.ezroam.zebraBridge.implementations
+package com.zebra.ezroam.zebraBridge.implementations
 
 import android.graphics.BitmapFactory
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
-import com.ezcorp.ezroam.zebraBridge.dispatchNewTask
-import com.ezcorp.ezroam.zebraBridge.interfaces.ImagePrinterProtocol
-import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.dispatchNewTask
+import com.zebra.ezroam.zebraBridge.interfaces.ImagePrinterProtocol
+import com.zebra.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.Promise
 import com.zebra.sdk.graphics.internal.ZebraImageAndroid
 import com.zebra.sdk.printer.ZebraPrinterFactory

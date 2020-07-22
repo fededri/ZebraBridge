@@ -1,12 +1,12 @@
-package com.ezcorp.ezroam.zebraBridge.di
+package com.zebra.ezroam.zebraBridge.di
 
 import android.content.Context
-import com.ezcorp.ezroam.zebraBridge.ZebraBridgeModule
-import com.ezcorp.ezroam.zebraBridge.implementations.*
-import com.ezcorp.ezroam.zebraBridge.interfaces.ConnectionProtocol
-import com.ezcorp.ezroam.zebraBridge.interfaces.DiscoveryProtocol
-import com.ezcorp.ezroam.zebraBridge.interfaces.FileSender
-import com.ezcorp.ezroam.zebraBridge.interfaces.ImagePrinterProtocol
+import com.zebra.ezroam.zebraBridge.ZebraBridgeModule
+import com.zebra.ezroam.zebraBridge.implementations.*
+import com.zebra.ezroam.zebraBridge.interfaces.ConnectionProtocol
+import com.zebra.ezroam.zebraBridge.interfaces.DiscoveryProtocol
+import com.zebra.ezroam.zebraBridge.interfaces.FileSender
+import com.zebra.ezroam.zebraBridge.interfaces.ImagePrinterProtocol
 import com.facebook.react.bridge.LifecycleEventListener
 import com.facebook.react.bridge.ReactApplicationContext
 import org.koin.dsl.module

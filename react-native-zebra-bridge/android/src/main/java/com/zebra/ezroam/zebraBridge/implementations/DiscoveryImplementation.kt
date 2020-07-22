@@ -1,16 +1,15 @@
-package com.ezcorp.ezroam.zebraBridge.implementations
+package com.zebra.ezroam.zebraBridge.implementations
 
 import android.content.Context
 import android.net.wifi.WifiManager
-import com.ezcorp.ezroam.zebraBridge.asMap
-import com.ezcorp.ezroam.zebraBridge.dispatchNewTask
-import com.ezcorp.ezroam.zebraBridge.interfaces.DiscoveryProtocol
-import com.ezcorp.ezroam.zebraBridge.models.ErrorTypes
-import com.ezcorp.ezroam.zebraBridge.models.ObservableTopics
-import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
+import com.zebra.ezroam.zebraBridge.asMap
+import com.zebra.ezroam.zebraBridge.dispatchNewTask
+import com.zebra.ezroam.zebraBridge.interfaces.DiscoveryProtocol
+import com.zebra.ezroam.zebraBridge.models.ErrorTypes
+import com.zebra.ezroam.zebraBridge.models.ObservableTopics
+import com.zebra.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.Promise
-import com.facebook.react.bridge.ReactContext
 import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.zebra.sdk.printer.discovery.DiscoveredPrinter
 import com.zebra.sdk.printer.discovery.DiscoveryHandler

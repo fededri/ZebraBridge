@@ -1,7 +1,6 @@
-package com.ezcorp.ezroam.zebraBridge
+package com.zebra.ezroam.zebraBridge
 
-import android.util.Log
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch

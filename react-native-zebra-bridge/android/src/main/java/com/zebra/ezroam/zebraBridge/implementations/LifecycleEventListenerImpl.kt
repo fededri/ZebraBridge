@@ -1,6 +1,6 @@
-package com.ezcorp.ezroam.zebraBridge.implementations
+package com.zebra.ezroam.zebraBridge.implementations
 
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
 import com.facebook.react.bridge.LifecycleEventListener
 
 class LifecycleEventListenerImpl : LifecycleEventListener {

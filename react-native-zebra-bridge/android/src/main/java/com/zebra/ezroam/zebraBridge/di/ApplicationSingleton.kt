@@ -1,13 +1,11 @@
-package com.ezcorp.ezroam.zebraBridge.di
+package com.zebra.ezroam.zebraBridge.di
 
 import android.content.ContentResolver
 import com.facebook.react.bridge.ReactApplicationContext
 import com.zebra.sdk.comm.Connection
 import kotlinx.coroutines.Job
 import org.koin.android.ext.koin.androidContext
-import org.koin.core.Koin
 import org.koin.core.KoinApplication
-import org.koin.core.KoinComponent
 import org.koin.dsl.koinApplication
 
 object ApplicationSingleton {

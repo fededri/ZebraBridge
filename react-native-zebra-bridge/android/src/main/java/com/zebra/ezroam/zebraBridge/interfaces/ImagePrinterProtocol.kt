@@ -1,4 +1,4 @@
-package com.ezcorp.ezroam.zebraBridge.interfaces
+package com.zebra.ezroam.zebraBridge.interfaces
 
 import com.facebook.react.bridge.Promise
 

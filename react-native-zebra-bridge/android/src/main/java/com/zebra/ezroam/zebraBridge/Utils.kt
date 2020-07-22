@@ -1,6 +1,6 @@
-package com.ezcorp.ezroam.zebraBridge
+package com.zebra.ezroam.zebraBridge
 
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.WritableMap
 import com.zebra.sdk.printer.PrinterStatus

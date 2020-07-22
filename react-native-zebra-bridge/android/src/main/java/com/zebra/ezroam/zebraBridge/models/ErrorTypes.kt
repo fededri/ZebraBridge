@@ -1,4 +1,4 @@
-package com.ezcorp.ezroam.zebraBridge.models
+package com.zebra.ezroam.zebraBridge.models
 
 /**
  * Errors that wasn't caused due to exceptions

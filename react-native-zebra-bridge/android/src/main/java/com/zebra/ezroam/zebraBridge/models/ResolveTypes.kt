@@ -1,4 +1,4 @@
-package com.ezcorp.ezroam.zebraBridge.models
+package com.zebra.ezroam.zebraBridge.models
 
 //Messages sent to javascript code
 enum class ResolveTypes(val value: Int) {

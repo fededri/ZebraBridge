@@ -1,4 +1,4 @@
-package com.ezcorp.ezroam.zebraBridge.models
+package com.zebra.ezroam.zebraBridge.models
 
 //This enum class lists all of the observable topics that react-native code can subscribe to
 enum class ObservableTopics(val value: String) {

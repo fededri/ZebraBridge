@@ -1,12 +1,11 @@
-package com.ezcorp.ezroam.zebraBridge.implementations
+package com.zebra.ezroam.zebraBridge.implementations
 
-import android.content.ContentResolver
 import android.net.Uri
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
-import com.ezcorp.ezroam.zebraBridge.dispatchNewTask
-import com.ezcorp.ezroam.zebraBridge.getConnection
-import com.ezcorp.ezroam.zebraBridge.interfaces.FileSender
-import com.ezcorp.ezroam.zebraBridge.models.ResolveTypes
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.dispatchNewTask
+import com.zebra.ezroam.zebraBridge.getConnection
+import com.zebra.ezroam.zebraBridge.interfaces.FileSender
+import com.zebra.ezroam.zebraBridge.models.ResolveTypes
 import com.facebook.react.bridge.Promise
 import com.zebra.sdk.printer.ZebraPrinterFactory
 import java.io.ByteArrayOutputStream

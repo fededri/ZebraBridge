@@ -1,7 +1,7 @@
-package com.ezcorp.ezroam.zebraBridge
+package com.zebra.ezroam.zebraBridge
 
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton
-import com.ezcorp.ezroam.zebraBridge.di.ApplicationSingleton.initializeKoin
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton
+import com.zebra.ezroam.zebraBridge.di.ApplicationSingleton.initializeKoin
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.JavaScriptModule
 import com.facebook.react.bridge.NativeModule
